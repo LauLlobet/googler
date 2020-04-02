@@ -2735,7 +2735,12 @@ class GooglerCmd(object):
                     sys.exit(0)
             else:
                 enter_count = 0
+            
+            import time
 
+            f = open(os.path.join(os.path.expanduser('~'),'.zsh_history'), "a")
+            f.write(": "+str(int(time.time())) +":0;googler "+cmd+"\n")
+            f.close()
             cmd = ' '.join(cmd.split())
             if cmd:
                 self.cmd = cmd
